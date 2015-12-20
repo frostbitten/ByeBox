@@ -3,24 +3,18 @@ removableByeContent = [];
 
 function byeBoxHideOverflow(){
 	$(removableByeContent[0]).closest('.bye-box-content-container').addClass('box-hide-overflow');
-	console.log('hide overflow?');
 }
 
 function removeByeContent(){
 		del = $(removableByeContent.shift());
-		console.log(removableByeContent);
 		del.closest('.bye-box-container').addClass('emptying');
 		$(window).trigger('by-box-emptying');
-		console.log(del);
 		del.closest('.bye-box-container').css({'min-width':"0px",'min-height':'0px','height':'','width':''}).addClass('emptied').removeClass('emptying');
 		del.closest('.bye-box-container').removeClass('bye-box-leave');
-		
-		console.log((del.is('[data-next-content]')));
 		if(typeof(del.attr('data-next-content')) === "undefined"){
 			del.addClass('empty').empty();
 			$(window).trigger('by-box-emptied');
 		}else{
-			console.log(del);
 			fillByeBox(
 			del.closest('.bye-box-container'),
 			del.attr('data-next-content')
@@ -29,13 +23,11 @@ function removeByeContent(){
 }
 
 function fillByeBox(selector, content){
-	console.log([selector, content]);
 	$(selector).find('.bye-box-content').html(content);
 	$(selector).trigger('byeboxfill');
 }
 
 $(document).on('byeboxfill','.bye-box-container', function(){
-	console.log($(this));
 	$(this).removeClass('emptied');
 	$(this).find('.bye-box-content').removeClass('empty');
 });
