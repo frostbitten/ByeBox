@@ -1,0 +1,158 @@
+
+html,body,article,
+html:before,body:before,article:before,
+html:after,body:after,article:after
+ {
+    -webkit-box-sizing: initial;
+    box-sizing: initial;
+}
+
+.container-fluid,.container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.dashed { 
+border: 1px dashed
+}
+
+.cornered-tr {position: absolute; top: 8px; top:0.5rem; right: 8px; right:0.5rem}
+
+
+.block {display: block}
+
+.p {display:block}
+
+.bye-box-container {background-color: #fffff8;}
+
+.bar-left-light {
+    background-color: #D3D3C3;
+    padding-top: 16px;
+    padding-top: 1rem;
+    padding-bottom: 16px;
+    padding-bottom: 1rem;
+    box-shadow: -500px 0 0 #D3D3C3,-200px 0 0 #D3D3C3;
+    color: #555;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.31);
+}
+.bar-left-light .bye-box-container {background-color: #D3D3C3;}
+
+.bar-right-purp {
+    color: #fff;
+    background-color: rgb(109, 27, 145);
+    padding-top: 16px;
+    padding-top: 1rem;
+    padding-bottom: 16px;
+    padding-bottom: 1rem;
+    box-shadow: -300px 0 0 rgb(109, 27, 145),200px 0 0 rgb(109, 27, 145),500px 0 0 rgb(109, 27, 145),1000px 0 0 rgb(109, 27, 145);
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.31);
+}
+.bar-right-purp .bye-box-container {background-color: #6D1B91;}
+.text-purp {color:#6D1B91;}
+
+.bar-left-green {
+    background-color: #72D174;
+    padding-top: 16px;
+    padding-top: 1rem;
+    padding-bottom: 16px;
+    padding-bottom: 1rem;
+    box-shadow: -500px 0 0 #72D174,-200px 0 0 #72D174;
+    color: #555;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.31);
+}
+.bar-left-green .bye-box-container {background-color: #72D174;}
+
+.bar-right-tangerine {
+    color: #fff;
+    background-color: rgb(245, 173, 70);
+    padding-top: 16px;
+    padding-top: 1rem;
+    padding-bottom: 16px;
+    padding-bottom: 1rem;
+    box-shadow: -300px 0 0 rgb(245, 173, 70),200px 0 0 rgb(245, 173, 70),500px 0 0 rgb(245, 173, 70),1000px 0 0 rgb(245, 173, 70);
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.31);
+}
+.bar-right-tangerine .bye-box-container {background-color: rgb(245, 173, 70);}
+
+
+.bar-right-hot {
+    background-color: rgb(215, 255, 238);
+    padding-top: 16px;
+    padding-top: 1rem;
+    padding-bottom: 16px;
+    padding-bottom: 1rem;
+	box-shadow: -300px 0 0 rgb(215, 255, 238),200px 0 0 rgb(215, 255, 238),500px 0 0 rgb(215, 255, 238),1000px 0 0 rgb(215, 255, 238);
+    color: #555;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.31);
+}
+.bar-right-hot .bye-box-container {background-color: #D3D3C3;}
+.bar-right-hot a:link {
+    text-decoration: none;
+    background: -webkit-linear-gradient(rgb(215, 255, 238), rgb(215, 255, 238)), -webkit-linear-gradient(rgb(215, 255, 238), rgb(215, 255, 238)), -webkit-linear-gradient(#333, #333);
+    background: linear-gradient(rgb(215, 255, 238), rgb(215, 255, 238)), linear-gradient(rgb(215, 255, 238), rgb(215, 255, 238)), linear-gradient(#333, #333);
+    background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    text-shadow: 0.03em 0 rgb(215, 255, 238), -0.03em 0 rgb(215, 255, 238), 0 0.03em rgb(215, 255, 238), 0 -0.03em rgb(215, 255, 238), 0.06em 0 rgb(215, 255, 238), -0.06em 0 rgb(215, 255, 238), 0.09em 0 rgb(215, 255, 238), -0.09em 0 rgb(215, 255, 238), 0.12em 0 rgb(215, 255, 238), -0.12em 0 rgb(215, 255, 238), 0.15em 0 rgb(215, 255, 238), -0.15em 0 rgb(215, 255, 238);
+    background-position: 0% 93%, 100% 93%, 0% 93%;
+}
+.bar-right-hot a:link, .bar-right-hot a:visited {
+    color: inherit;
+}
+
+.bar-left code {
+    background-color: rgba(247, 247, 249, 0.42);
+    text-shadow: none;
+    white-space: nowrap;
+}
+
+code {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 1px 1px rgba(63, 23, 25, 0.14);
+}
+
+b.feature {
+    font-weight: 700;
+    letter-spacing: 1px;
+    background-color: rgba(0, 0, 0, 0.08);
+    display: inline-block;
+    padding: 0 2px;
+    padding: 0 0.125rem;
+}
+
+.text-muted {
+    color: #AEAE94;
+    font-weight: 100;
+}
+
+.card {border-width:1px}
+
+
+.text-center {text-align:center}
+
+
+.h1 { font-weight: 400;
+     margin-top: 64px;
+     margin-top: 4rem;
+     margin-bottom: 24px;
+     margin-bottom: 1.5rem;
+     font-size: 51px;
+     font-size: 3.2rem;
+     line-height: 1; }
+
+.h2 { font-style: italic;
+     font-weight: 400;
+     margin-top: 33px;
+     margin-top: 2.1rem;
+     margin-bottom: 0;
+     font-size: 35px;
+     font-size: 2.2rem;
+     line-height: 1; }
+
+.h3 { font-style: italic;
+     font-weight: 400;
+     font-size: 27px;
+     font-size: 1.7rem;
+     margin-top: 32px;
+     margin-top: 2rem;
+     margin-bottom: 0;
+     line-height: 1; }

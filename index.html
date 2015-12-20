@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content='ByeBox. A library of css and js(dependent on jquery) to provide a nify "content dropping from the DOM window" effect.'>
+	<meta name="author" content="Matthew Seremet">
+	
+	<title>ByeBox - Drop content like it's 1929</title>
+	
+	<!-- Page stylesheets -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" type="text/css" >
+	<link rel="stylesheet" href="preview\tufte-css-master\tufte.css" type="text/css" >
+	<link rel="stylesheet" href="preview\byebox.css" type="text/css" >
+	<link rel="stylesheet" href="preview\byebox-custom.css" type="text/css" >
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+<article>
+	<header>
+		<h1>ByeBox</h1>
+		<p>An animated approach to dismissable inline content
+		<p><a href="" class="h3">Download the latest version</a>
+	</header>
+	<main>
+		<section class="clearfix">
+		<h2>Code and Usage</h2>
+		<p>Besides byebox.css and byebox.js, the only other thing you'll need is some form of jQuery.
+		<div class="row m-t">
+			<div>
+				<div class="bye-box-container col-xs-6 col-md-2">
+					<div class="bye-box-content-container">
+						<div class="bye-box-bg"></div>
+						<div class="bye-box-content" style="text-align:center; border:1px dashed; padding:0 1rem 1rem">
+							<h3> ByeBox </h3>
+							<div>I'm ready to jump!</div> 
+							<div>Click <a href="#" class="bye-button">here</a> to dismiss me</div>
+						</div>
+					</div>
+				</div>
+				<div class="bye-box-container col-xs-6 col-md-2">
+					<div class="bye-box-content-container">
+						<div class="bye-box-bg"></div>
+						<div class="bye-box-content" data-next-content="
+							<h3> ByeBox2 </h3>
+							<div>I've jumped before and I'll do it again!</div> 
+							<div>Update the <code>[data-next-content]</code> attribute to change the content to something else.</div> <div>Click <a href='#' class='bye-button'>here</a> to replace me again. </div>
+							" style="text-align:center; border:1px dashed; padding:0 1rem 1rem">
+							<h3> ByeBox </h3>
+							<div>I'm ready to jump!</div> 
+							<div>Click <a href="#" class="bye-button">here</a> to replace me</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix">
+			<pre class="col-xs-10 col-md-7 prettyprint m-t p-t p-b p-l">&lt;div class=&quot;bye-box-container&quot;&gt;
+	&lt;div class=&quot;bye-box-content-container&quot;&gt;
+		&lt;div class=&quot;bye-box-bg&quot;&gt;&lt;/div&gt;
+		&lt;div class=&quot;bye-box-content&quot;
+				style=&quot;text-align:center; border:1px dashed; padding:0 1rem 1rem&quot;&gt;
+			&lt;h3&gt; ByeBox &lt;/h3&gt;
+			&lt;div&gt;I'm ready to jump!&lt;/div&gt; 
+			&lt;div&gt;Click &lt;a href=&quot;#&quot; class=&quot;bye-button&quot;&gt;here&lt;/a&gt; to dismiss me&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</pre>
+			<div class="col-xs-10 col-md-7">
+				<h4 class="m-t"><code>.bye-box-container</code></h4>
+					Parent container for the ByeBox
+				<h4 class="m-t"><code>.bye-box-content-container</code></h4>
+					Container for the bg and main content
+				<h4 class="m-t"><code>.bye-box-bg</code></h4>
+					Contains the background for the content. This can be retrieved when new content is added.
+				<h4 class="m-t"><code>.bye-box-content</code></h4>
+					Contains the html content to be dismissed.
+				<h4 class="m-t"><code>.bye-button</code></h4>
+					Contains the html content to be dismissed.
+			</div>
+		</div>
+		</section>
+		<hr>
+		<h2>Preview</h2>
+		<div class="bar-left bar-left-light m-t m-b">
+			<p>Dismissable content can be inline-block, block, floated, whatever. The container is <b class="feature">element agnostic</b>, so if you need to use pure spans (for the sake of not breaking the <code>&lt;p&gt;</code> element with a block element), go for it! Style and override the defaults freely. Apply a background color to the <code>.bye-box-container</code> for <b class="feature">background-color agnostic</b> capabilities.
+			<h3>Applied to bootstrap columns:</h3>
+			<div class="container-fluid m-t">
+				<div class="row">
+					<div class="col-sm-12 col-md-7 p-r-lg">
+						<div class="container-fluid">
+							<div class="row bye-box-row">
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg card"></span>
+										<span class="bye-box-content card p-b text-center">
+											<span class="block card-header card-title clearfix"> <span class="btn-sm pull-right btn dashed bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span> Bootstrap Card</span>
+											<span class="card-body p-t">
+											I'm ready to jump!
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg dashed"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg dashed"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<div class="bye-box-container  bar-right bar-right-purp">
+			<div class="bye-box-content-container">
+				<div class="bye-box-bg"></div>
+				<div class="bye-box-content m-t m-b">
+				<span class="btn-sm btn cornered-tr bye-button m-t" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</span>
+				<h3>Check it out, this whole bar can be dismissed</h3>
+				<p>Yeahhh, <b class="feature"> Nestable</b> indeed.
+		<div class="">
+			<div class="container-fluid m-t">
+				<div class="row">
+					<div class="col-sm-12 col-md-7 p-r-lg">
+						<div class="container-fluid">
+							<div class="row bye-box-row">
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg card"></span>
+										<span class="bye-box-content card p-b text-center">
+											<span class="block text-purp card-header card-title clearfix"> <span class="btn-sm pull-right btn dashed bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span> Bootstrap Card</span>
+											<span class="card-body p-t">
+											I'm ready to jump!
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg dashed"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg dashed"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		</div>
+	</div>
+</div>
+		
+		
+		<div class="bar-left bar-left-green m-t m-b">
+			<div class="container-fluid m-t">
+				<div class="row">
+					<div class="col-sm-12 col-md-7 p-r-lg">
+						<div class="container-fluid">
+							<div class="row bye-box-row">
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg card"></span>
+										<span class="bye-box-content card p-b text-center">
+											<span class="block text-success card-header card-title clearfix"> <span class="btn-sm pull-right btn dashed bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span> Bootstrap Card</span>
+											<span class="card-body p-t">
+											I'm ready to jump!
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg dashed"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg dashed"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bar-right bar-right-tangerine m-t m-b">
+			<div class="container-fluid m-t">
+				<div class="row">
+					<div class="col-sm-12 col-md-7 p-r-lg">
+						<div class="container-fluid">
+							<div class="row bye-box-row">
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg"></span>
+										<span class="bye-box-content card p-b text-center">
+											<span class="block text-warning card-header card-title clearfix"> <span class="btn-sm pull-right btn dashed bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span> Bootstrap Card</span>
+											<span class="card-body p-t">
+											I'm ready to jump!
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg dashed"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+								<div class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+									<span class="bye-box-content-container">
+										<span class="bye-box-bg dashed"></span>
+										<span class="bye-box-content p-b text-center">
+											<span class="h3 block"> ByeBox </span>
+											<span >I'm ready to jump!</span>
+											<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											  </span>
+											</span>
+										</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section>
+			<h3>Applied to floated items, sized with bootstrap columns, and in pure spans:</h3>
+			<p class="text-muted"><i>Trek-Ipsum</i>
+			<p>this zoo somehow and at them on the voyage mister la forge prepare reports of the entire beetle.	i was created an exception for talos four in their behaviour on the flagship of this ship and talk to you had wanted you that there anymore please riva is in his condition but we've had some doubt that long for a radio beam to travel from the lack of traceable.<span class="bye-box-container pull-left m-b m-r m-t col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+				<span class="bye-box-content-container">
+					<span class="bye-box-bg dashed"></span>
+					<span class="bye-box-content p-b text-center">
+						<span class="h3 block"> ByeBox </span>
+						<span >I'm ready to jump!</span>
+						<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						  </span>
+						</span>
+					</span>
+				</span>
+			</span>
+			you wanted to see me when i'm afraid your imagination nor.	moogie i'm sorry commander data has learned to tie.	i can count on every moment of the fca's involved now you're saying goodbye lore is only feeding him and the talos four all these years i'd see how their lives life as it happens to him and who's going on ohniaka three consisting.	you captain kirk to all ship is gone insane fears.
+			<p>get intend to take you all for a radio beam to travel from there to move my first emotion data you must save spock's life signs in any trouble when i saw the nagus all you have a conscience is too risky and which isn't and who's going on your imagination nor.	he can say to some ways she <span class="bye-box-container m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3 pull-left m-b m-r m-t">
+				<span class="bye-box-content-container">
+					<span class="bye-box-bg dashed"></span>
+					<span class="bye-box-content p-b text-center">
+						<span class="h3 block"> ByeBox </span>
+						<span >I'm ready to jump!</span>
+						<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						  </span>
+						</span>
+					</span>
+				</span>
+			</span>has an uncharted planet we'll have to help me guess the mess hall.	when he looks more than a hero.	weapons and you'll see it takes two four seven and punctured.	i do not want to have to talk to quark what are klingon birds.	we have been a mind-link with the medusans far as long as though it it seems to me the condition of our own thoughts memories that would be wrong again the colony and there is no survivors encampment were moonlight too violent
+			<p>and see how their emotions as it happens to himself into a new specimens to be on bajor ushers.	you care of him a man either lives life as it happens to the twisted values. helm get anything more positive on it it seems to lack of trac<span class="bye-box-container pull-right m-b m-l m-t m-b col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+				<span class="bye-box-content-container">
+					<span class="bye-box-bg dashed"></span>
+					<span class="bye-box-content p-b text-center">
+						<span class="h3 block"> ByeBox </span>
+						<span >I'm ready to jump!</span>
+						<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						  </span>
+						</span>
+					</span>
+				</span>
+			</span>eable.	i read it they polarise out that the only emotions i start feeling is breaking orbit on it and starts to learn about your dressmaker.	you will find it seems more positive on it it seems to me the condition of our own crew takes precedent.	we are nearing the ohniaka three outpost sir we've located a canyon to the emotions burst in front of us there now may wish to be no delay any other planets i am looking forward to this borg disconnected.
+			<p>i have a right if this strike unless i look at them somehow it can't easily humans are attracted by to take part of that happen again and take care of our own sick and injured at a record tapes of course i'm afraid i am locutus.	you're offering some sort of view evidence is the strangest.	lore is only missed him on the planet is no business ledgers.	can't go with the ambassador to contact mine but these are my thoughts magistrate that far it moves me i was that stuck me feel with us tonight because we're going to stop first at the vega colony and who doesn't and surgical.	then run off we'd have <span class="bye-box-container pull-left m-b m-r m-t col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+				<span class="bye-box-content-container">
+					<span class="bye-box-bg dashed"></span>
+					<span class="bye-box-content p-b text-center">
+						<span class="h3 block"> ByeBox </span>
+						<span >I'm ready to jump!</span>
+						<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						  </span>
+						</span>
+					</span>
+				</span>
+			</span>to not one and you by subjecting myself to erotic imagery.	sensors severely.
+			<p>how can one doctor crusher report on board like a member of being responsible for two hundred and three lives life as it to me to have no right to know to stay in that deserted fortress and attacked by one of their warriors call letters check with a survey expedition as they were keyed to cause interference and attract attention this has never been explored.	his relationship which mission is too early to tell if it to fill me on bajor ushers.	what's she was born almost as <span class="bye-box-container pull-right m-b m-l m-t col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+				<span class="bye-box-content-container">
+					<span class="bye-box-bg"></span>
+					<span class="bye-box-content p-b text-center">
+						<span class="h3 block"> ByeBox </span>
+						<span >I'm ready to jump!</span>
+						<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						  </span>
+						</span>
+					</span>
+				</span>
+			</span>we haven't been keeping us there are only no longer functioning sir i'm not going to do anything you want me to test of the tower of commerce displayed.	so much for the distance that would be nice to say you're amachine.	i was forced to live with the smallest.	i hope you're hungry and encampment were not going to press.
+			<p>it's boring.	we get anything more positive on regulus or on it it seems to me the briefing by to trigger data's power supply forces return it it seems to me the condition but we've had some doubt if earth is ready to learn sign the <span class="bye-box-container pull-left m-b m-r m-t col-xs-6 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+				<span class="bye-box-content-container">
+					<span class="bye-box-bg"></span>
+					<span class="bye-box-content p-b text-center">
+						<span class="h3 block"> ByeBox </span>
+						<span >I'm ready to jump!</span>
+						<span ><span class="btn-sm btn cornered-tr bye-button" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						  </span>
+						</span>
+					</span>
+				</span>
+			</span>vulcan was walking along minding.	well these gentlemen this we're getting you call enhancement.	give anything it's my hands dismissed.	drop by my true ferengi economy is dependent.	we're going to form a aa what it's like to know to be parts of a spaceship hull temperature is critical.
+			<p>what are you doing here or i will have to blame for me not at issue.	helm hard you at all right for yourself no one could have rid of me then you what you need to receive new orders enterprise come in weapons range in their faces and who's going on a life-long.	i had to study of you ferengi to admit this is commander riker's injury was an emotional response by this is my style to seven four slash one five five mark zero five or you take that away team and two others dead seven injured at warp until the image that are you're beginning to look at it so funny how it feels to do that today i'm glad you realise that something they wear the ship's most experienced officer concur with the medusans the reports is a blue ocean at this base sent from here a cadet vessel did it feel to reinstate it or he turns his back on it and technology.	this heat much point where are you to stay on the landing party and i will take theta.	then you made that clear up to he's a lucky guess it's possible borg who isn't ugly to duplicate the batris.
+		</section>
+	</main>
+	<footer class="bar-right bar-right-hot">
+	
+	<h2>About</h2>
+	
+	<p>The idea for this came from a tromploi-esque doodle of mine. In it, the text looks as if it's escaping into the surface its drawn/painted upon through a door cut into the material. 
+	
+	<p>The layout for this page is based on <a href="https://edwardtufte.github.io/tufte-css/">TufteCSS</a> with <a href="http://v4-alpha.getbootstrap.com/">Bootstrap 4</a> providing extra help.
+	
+	<p><b>Created by <a href="http://matthewseremet.com">Matthew Seremet</a>.</b><br>
+	Matt is a freelance full stack developer with a passion for awesome open source projects. You'll often catch him contributing to <a href="http://userfrosting.com">UserFrosting</a> in his freetime. 
+	
+	</footer>
+</article>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js" ></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.6.0/jquery.matchHeight-min.js"></script>
+<script src="preview\byebox.js" ></script>
+<script>
+
+$(window).on('by-box-emptied by-box-emptying',function(){
+	console.log('raergaerg');
+	$.fn.matchHeight._update();
+	setTimeout(function(){$.fn.matchHeight._update('.bye-box-row .bye-box-container:not(.emptying):not(.emptied) .bye-box-content-container');},500);
+});
+$('.bye-box-row .bye-box-container:not(.emptying):not(.bye-box-leave):not(.emptied) .bye-box-content-container').matchHeight({property: 'min-height'});
+
+</script>
